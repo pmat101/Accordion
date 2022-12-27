@@ -18,11 +18,37 @@ const faqData = [
   },
 ];
 
-let divv = document.createElement("div");
-divv.setAttribute("class", "faq");
-divv.innerHTML = faqData[0].question;
-document.querySelector(".accordian_body").appendChild(divv);
-// document.querySelector(".accordian_body").a;
+for (let i of faqData) {
+  let box = document.createElement("div");
+  let heading = document.createElement("h3");
+  let show = document.createElement("button");
+  let para = document.createElement("p");
+  box.setAttribute("class", "faq");
+  heading.setAttribute("class", "faq_header");
+  show.setAttribute("class", "show_btn");
+  para.setAttribute("class", "hidden");
+  heading.innerText = i.question;
+  show.innerText = "+";
+  para.innerText = i.answer;
+  document.querySelector(".accordian_body").appendChild(box);
+  box.appendChild(heading);
+  box.appendChild(show);
+  box.appendChild(para);
+  box.style.display = "flex";
+  box.style.flexWrap = "wrap";
+  box.style.justifyContent = "space-between";
+  function displayPara() {
+    let flag = para.getAttribute("class");
+    if (flag == "hidden") {
+      para.removeAttribute("class");
+      show.innerText = "-";
+    } else {
+      para.setAttribute("class", "hidden");
+      show.innerText = "+";
+    }
+  }
+  show.addEventListener("click", displayPara);
+}
 
 /*
 const accordianBody;
@@ -40,4 +66,3 @@ function btnStatusUpdate() {
 
 }
 */
-
