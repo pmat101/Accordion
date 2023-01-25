@@ -18,51 +18,47 @@ const faqData = [
   },
 ];
 
-for (let i of faqData) {
-  let box = document.createElement("div");
-  let heading = document.createElement("h3");
-  let show = document.createElement("button");
-  let para = document.createElement("p");
-  box.setAttribute("class", "faq");
-  heading.setAttribute("class", "faq_header");
-  show.setAttribute("class", "show_btn");
-  para.setAttribute("class", "hidden");
-  heading.innerText = i.question;
-  show.innerText = "+";
-  para.innerText = i.answer;
-  document.querySelector(".accordian_body").appendChild(box);
-  box.appendChild(heading);
-  box.appendChild(show);
-  box.appendChild(para);
-  box.style.display = "flex";
-  box.style.flexWrap = "wrap";
-  box.style.justifyContent = "space-between";
-  function displayPara() {
-    let flag = para.getAttribute("class");
-    if (flag == "hidden") {
-      para.removeAttribute("class");
-      show.innerText = "-";
-    } else {
-      para.setAttribute("class", "hidden");
-      show.innerText = "+";
-    }
-  }
-  show.addEventListener("click", displayPara);
-}
-
-/*
-const accordianBody;
-const faqs = [];
+const accordianBody = document.querySelector(".accordian_body");
 
 function showFaq() {
-
+  for (i of faqData) accordianBody.appendChild(createFaq(i));
 }
 
-function createFaq() {
+function createFaq(item) {
+  let faq = document.createElement("div");
+  let header = document.createElement("div");
+  let heading = document.createElement("h3");
+  let btn = document.createElement("button");
+  let para = document.createElement("p");
 
+  faq.setAttribute("class", "faq");
+  header.setAttribute("class", "faq_header");
+  btn.setAttribute("class", "show_btn");
+  para.setAttribute("class", "hidden");
+
+  heading.innerText = item.question;
+  btn.innerText = "+";
+  para.innerText = item.answer;
+
+  header.appendChild(heading);
+  header.appendChild(btn);
+  faq.appendChild(header);
+  faq.appendChild(para);
+
+  btn.addEventListener("click", btnStatusUpdate);
+  return faq;
 }
 
 function btnStatusUpdate() {
-
+  let parent = this.parentElement;
+  let sibling = parent.nextElementSibling;
+  if (sibling.getAttribute("class") == "hidden") {
+    sibling.removeAttribute("class");
+    this.innerText = "-";
+  } else {
+    sibling.setAttribute("class", "hidden");
+    this.innerText = "+";
+  }
 }
-*/
+
+showFaq();
