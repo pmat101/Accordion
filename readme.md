@@ -1,8 +1,8 @@
 # PRANAV MATHUR
 
-![markup language](./readme-data/markup-HTML-orange.svg)
-![style sheet language](./readme-data/styling-CSS-blue.svg)
-![programming language](./readme-data/programming-JavaScript-yellow.svg)
+![markup language](./Image/markup-HTML-orange.svg)
+![style sheet language](./Image/styling-CSS-blue.svg)
+![programming language](./Image/programming-JavaScript-yellow.svg)
 
 ## Learnings from the project:
 
@@ -15,8 +15,8 @@
 
 ## Screenshots:
 
-![screencapture](./readme-data/ss2.png)
-![screencapture](./readme-data/ss3.png)
+![screencapture](./Image/ss2.png)
+![screencapture](./Image/ss3.png)
 
 ## Live link:
 
